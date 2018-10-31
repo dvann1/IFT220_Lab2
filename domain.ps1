@@ -15,6 +15,7 @@ Remove-NetIPAddress -InterfaceAlias $nicname -AddressFamily IPv4 -Confirm:$false
 Remove-NetRoute -InterfaceAlias $nicname -AddressFamily IPv4 -Confirm:$false
 New-NetIPAddress -InterfaceAlias $nicname -IPAddress $ipaddress -AddressFamily IPv4 -PrefixLength $prefixlength -DefaultGateway $gateway
 
+#I think this is where I'm supposed to change the DNS IP to the local/non-loopback IP
 # Set the DNS address to ourselves
 Set-DnsClientServerAddress -InterfaceAlias $nicname -ServerAddresses $ipaddress
 
